@@ -1,0 +1,50 @@
+.main
+{
+    background: linear-gradient(160deg, rgba(49,22,101,1) 59%, rgba(127,60,142,1) 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+.header
+{
+    font-size: 48px;
+    color: white;
+    justify-content: center;
+}
+
+.todoListMain
+{
+    color:white;
+    list-style-type: none;
+    
+}
+
+.item
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    margin-left: 0.5rem;
+    margin-right: auto;
+    width: 100%;
+    min-width: 220px;
+    color: white;
+}
+
+#button {
+    background-color: black; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#button:hover
+{
+    background-color: gray;
+}
+
