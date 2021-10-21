@@ -32,7 +32,7 @@
     color: white;
 }
 
-#button {
+.button {
     background-color: black; 
     border: none;
     color: white;
@@ -43,8 +43,22 @@
     font-size: 16px;
 }
 
-#button:hover
+.button:hover
 {
     background-color: gray;
+}
+
+.descField:disabled
+{
+    background: transparent;
+    color: white;
+    border:none;
+}
+
+.descField:enabled
+{
+    background: transparent;
+    color: white;
+    border:solid 1px white;
 }
 

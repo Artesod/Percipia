@@ -1,22 +1,36 @@
-import React, {useState} from 'react'
+import React from 'react'
 import TodoListItem from './todoListItem';
 
-function TodoListMain()
+function TodoListMain(props)
 {
-    const [items, setItems] = useState([{desc: "hi", date: "hello", time: "hola"}, {desc: "bye", date:"adios", time: "hasta"}]);
+    //init variables
+    const{
+        items,
+        setItems,
+        refresh,
+        setRefresh
+    } = props;
 
+
+    //this will map out a list of all the various items
     return(
         <div>
-            <u1 className = "todoListMain">
+            {items ? 
+            <ul className = "todoListMain">
                 {
-                    items.map((item) =>
-                        <li>
-                            <TodoListItem desc = {item.desc} date = {item.date} time = {item.time}/>
+                    items.map((item, i) =>
+                        <li key = {item.id}>
+                            <TodoListItem desc = {item.desc} date = {item.date} id = {item.id}
+                            time = {item.time} index = {i} items = {items} setItems = {setItems}
+                            refresh = {refresh} setRefresh = {setRefresh}
+                            />
                         </li>
                     )
 
                 }
-            </u1>
+            </ul>
+            : ""
+            }
         </div>
     );
 }
