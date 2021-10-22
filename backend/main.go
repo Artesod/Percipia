@@ -6,10 +6,9 @@ import(
 	"fmt"
 	"log"
 	"net/http"
-	"strconv"
+	
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/gorilla/mux"
 	"github.com/rs/cors"   
 )
 
@@ -133,7 +132,7 @@ func dbUpdateItem(Description string, Date string, Time string, ID int) error {
 
 func dbGetList() ([]todoList, error){
 
-	tb, err := db.Query(`SELECT * FROM todoListTable`)
+	tb, err := db.Query(`SELECT * FROM todoListTable ORDER BY Date, Time`)
 
 	defer tb.Close()
 	if err != nil{
@@ -187,14 +186,14 @@ func removeItemHandler(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", "Content_Type")
-
-	params := mux.Vars(r)
 	
-	temp, err := strconv.Atoi(params["id"])
+	var task todoList
+	err := json.NewDecoder(r.Body).Decode(&task)
 	if err != nil{
 		panic(err.Error())
 	}
-	dbRemoveItem(temp)
+	dbRemoveItem(task.ID)
+	json.NewEncoder(w).Encode(task)
 }
 
 func updateItemHandler(w http.ResponseWriter, r *http.Request){

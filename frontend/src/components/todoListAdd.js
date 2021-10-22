@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {addItemCall} from './todoREST'
 
 
 function TodoListAdd(props)
@@ -14,6 +15,23 @@ function TodoListAdd(props)
     //used for description textfield
     const [text, setText] = useState("")
 
+    const generateID = () =>
+    {
+        var biggestID = -1
+
+        for (var i = 0; i < items.length; i++)
+        {
+            if (items[i].ID > biggestID)
+            {
+                biggestID = items[i].ID
+            }
+
+        }
+
+        return biggestID + 1
+
+    }
+
     //function to handle adding a new item to the todo list
     const handleAdd = () =>
     {
@@ -27,23 +45,17 @@ function TodoListAdd(props)
             //get date and time
             var dates = new Date();
             var date = dates.toDateString();
-            var time = dates.toLocaleTimeString();
+            var Time = dates.toLocaleTimeString();
 
             //get id
-            var id = items.length;
-            var desc = text.trim();
+            var ID = generateID();
+            var Description = text.trim();
 
-            let newItems = items;
-            newItems.push({desc, date, time, id})
-
-            //reset textfield
-            setText("")
-
-            //add to list
-            setItems(newItems)
-
-            //refresh page
-            setRefresh(!refresh)
+            addItemCall(Description, date, Time, ID ).then((res) => {
+                console.log("Item added")
+                setText("")
+                setRefresh(!refresh)
+            })
         }
     }
 

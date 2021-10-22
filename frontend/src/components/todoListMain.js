@@ -19,9 +19,9 @@ function TodoListMain(props)
             <ul className = "todoListMain">
                 {
                     items.map((item, i) =>
-                        <li key = {item.id}>
-                            <TodoListItem desc = {item.desc} date = {item.date} id = {item.id}
-                            time = {item.time} index = {i} items = {items} setItems = {setItems}
+                        <li key = {item.ID}>
+                            <TodoListItem desc = {item.Description} date = {item.Date} id = {item.ID}
+                            time = {item.Time} index = {i} items = {items} setItems = {setItems}
                             refresh = {refresh} setRefresh = {setRefresh}
                             />
                         </li>

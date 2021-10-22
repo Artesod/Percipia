@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {updateItemCall, removeItemCall} from './todoREST'
 
 function TodoListItem(props)
 {
@@ -45,14 +46,17 @@ function TodoListItem(props)
             var time = dates.toLocaleTimeString();
 
             //add to end of list to order by date and time
-            let overwrittenItem = {desc: text.trim(), date: date, time: time, id: id}
+            let overwrittenItem = {Description: text.trim(), Date: date, Time: time, ID: id}
             newItems.push(overwrittenItem)
 
-            //update
-            setItems(newItems);
-            setRefresh(!refresh)
-            //user can no longer edit description unless they press edit button again
-            setEdit(false);
+            updateItemCall(text.trim(), date, time, id).then((res) => {
+                console.log("Success")
+                //update
+                setRefresh(!refresh)
+                //user can no longer edit description unless they press edit button again
+                setEdit(false);
+            })
+
         }
         else if(!canEdit)
         {
@@ -65,8 +69,14 @@ function TodoListItem(props)
     //function in handling removing an item from todolist
     const handleRemove = () =>
     {
-        let newItems = items.filter( item => item.id !== id)
-        setItems(newItems)
+        //let newItems = items.filter( item => item.id !== id)
+        //setItems(newItems)
+
+        removeItemCall(id).then((res) =>
+        {
+            console.log("Removed Successfully")
+            setRefresh(!refresh)
+        })
     }
 
     return(
