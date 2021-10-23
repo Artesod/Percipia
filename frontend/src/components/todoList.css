@@ -1,22 +1,43 @@
+
 .main
 {
-    background: linear-gradient(160deg, rgba(49,22,101,1) 59%, rgba(127,60,142,1) 100%);
+    background: linear-gradient(160deg, #EDEAE5 49%, #9FEDD7 100%);
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-width: 1000px;
+}
+
+.logo
+{
+    width: 10%;
+    height: 20%;
 }
 
 .header
 {
     font-size: 48px;
-    color: white;
+    color: black;
     justify-content: center;
+    margin-bottom: 1em;
+    font-family: 'Playfair Display';font-size: 48px;
 }
 
 .todoListMain
 {
-    color:white;
+    color:black;
     list-style-type: none;
-    
+}
+
+.addTextField
+{
+    background-color: #FEF9C7;
+    border: 2px solid black;
+    border-radius: 16px;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    font-family: 'Playfair Display';font-size: 24px;
 }
 
 .item
@@ -29,11 +50,13 @@
     margin-right: auto;
     width: 100%;
     min-width: 220px;
-    color: white;
+    color: black;
+    font-size: 24px;
+    font-family: 'Playfair Display';
 }
 
 .button {
-    background-color: black; 
+    background-color: #026670; 
     border: none;
     color: white;
     padding: 15px 32px;
@@ -41,24 +64,33 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 24px;
+    border: 1px solid white;
+    font-family: 'Playfair Display';
 }
 
 .button:hover
 {
-    background-color: gray;
+    background-color: #FEF9C7;
+    color: black;
+    border: 1px solid black;
 }
 
 .descField:disabled
 {
     background: transparent;
-    color: white;
+    color: black;
     border:none;
+    font-size: 24px;
+    font-family: 'Playfair Display';
 }
 
 .descField:enabled
 {
     background: transparent;
-    color: white;
-    border:solid 1px white;
+    color: black;
+    border:solid 1px black;
+    font-size: 24px;
+    font-family: 'Playfair Display';
 }
 

@@ -3,6 +3,7 @@ import TodoListMain from './todoListMain';
 import TodoListAdd from './todoListAdd';
 import { getListCall } from './todoREST';
 import "./todoList.css"
+import logo from "./logo2.png"
 
 function TodoList()
 {
@@ -39,8 +40,9 @@ function TodoList()
 
     return(
         <div className = "main">
+            <img className = "logo" src = {logo} />
             <div className = "header">
-                Todo List
+                What's For Today?
             </div>
             <TodoListAdd items = {items} setItems = {setItems} refresh = {refresh} setRefresh = {setRefresh}/>
             <TodoListMain items = {items} setItems = {setItems} refresh = {refresh} setRefresh = {setRefresh}/>

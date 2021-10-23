@@ -60,8 +60,8 @@ function TodoListAdd(props)
     }
 
     return(
-    <div>
-        <span><input type = "text" maxLength = "20" placeholder = "Description" value = {text} onChange = {(ev) => setText(ev.target.value)}/></span>
+    <div className = "addContainer">
+        <span><input className = "addTextField" type = "text" maxLength = "20" placeholder = "Description" value = {text} onChange = {(ev) => setText(ev.target.value)}/></span>
         <span><button className = "button" onClick = {() => handleAdd()} >Add</button></span>
     </div>
     
