@@ -22,7 +22,6 @@ function TodoList()
             setItems(itemsRef.current)
         };
         getList()
-        console.log("called")
 
     }, [])
 
@@ -34,13 +33,12 @@ function TodoList()
             setItems(itemsRef.current)
         };
         getList()
-        console.log("looop")
 
     }, [refresh])
 
     return(
         <div className = "main">
-            <img className = "logo" src = {logo} />
+            <img className = "logo" src = {logo} alt = "Logo"/>
             <div className = "header">
                 What's For Today?
             </div>

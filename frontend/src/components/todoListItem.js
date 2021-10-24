@@ -12,7 +12,6 @@ function TodoListItem(props)
         id,
         index,
         items,
-        setItems,
         refresh,
         setRefresh
     } = props;
@@ -50,7 +49,6 @@ function TodoListItem(props)
             newItems.push(overwrittenItem)
 
             updateItemCall(text.trim(), date, time, id).then((res) => {
-                console.log("Success")
                 //update
                 setRefresh(!refresh)
                 //user can no longer edit description unless they press edit button again
@@ -74,7 +72,6 @@ function TodoListItem(props)
 
         removeItemCall(id).then((res) =>
         {
-            console.log("Removed Successfully")
             setRefresh(!refresh)
         })
     }

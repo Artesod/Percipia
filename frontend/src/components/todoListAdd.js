@@ -7,7 +7,6 @@ function TodoListAdd(props)
     //set variables to be used
     const{
         items,
-        setItems,
         refresh,
         setRefresh
     } = props;
@@ -52,7 +51,6 @@ function TodoListAdd(props)
             var Description = text.trim();
 
             addItemCall(Description, date, Time, ID ).then((res) => {
-                console.log("Item added")
                 setText("")
                 setRefresh(!refresh)
             })
