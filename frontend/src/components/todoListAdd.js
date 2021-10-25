@@ -18,16 +18,23 @@ function TodoListAdd(props)
     {
         var biggestID = -1
 
-        for (var i = 0; i < items.length; i++)
+        if (items !== null)
         {
-            if (items[i].ID > biggestID)
+            for (var i = 0; i < items.length; i++)
             {
-                biggestID = items[i].ID
+                if (items[i].ID > biggestID)
+                {
+                    biggestID = items[i].ID
+                }
+
             }
 
+            return biggestID + 1
         }
-
-        return biggestID + 1
+        else
+        {
+            return 0;
+        }
 
     }
 

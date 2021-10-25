@@ -18,8 +18,16 @@ function TodoList()
         const getList = async() =>
         {
             let result = await getListCall()
+
+            if (result !== undefined)
+            {
             itemsRef.current = result.data
             setItems(itemsRef.current)
+            }
+            else
+            {
+                setItems([])
+            }
         };
         getList()
 
@@ -29,8 +37,16 @@ function TodoList()
         const getList = async() =>
         {
             let result = await getListCall()
+
+            if (result !== undefined)
+            {
             itemsRef.current = result.data
             setItems(itemsRef.current)
+            }
+            else
+            {
+                setItems([])
+            }
         };
         getList()
 

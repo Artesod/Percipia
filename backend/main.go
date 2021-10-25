@@ -35,7 +35,7 @@ func dbInit() {
 	err = db.Ping()
 	if err != nil{
 		fmt.Println("Error")
-		panic(err.Error())
+		panic(err	.Error())
 	}
 
 	tx, err := db.Begin()
@@ -134,10 +134,12 @@ func dbGetList() ([]todoList, error){
 
 	tb, err := db.Query(`SELECT * FROM todoListTable ORDER BY Date, Time`)
 
-	defer tb.Close()
+	
 	if err != nil{
 		panic(err.Error())
 	}
+
+	defer tb.Close()
 
 	var items []todoList
 	
